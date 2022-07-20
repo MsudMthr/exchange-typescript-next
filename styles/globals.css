@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;1,300&family=Roboto:wght@100;300;400;500;700;900&family=Sedgwick+Ave&family=Signika+Negative:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+@layer components {
+    .bg-gradient {
+        @apply bg-gradient-to-b from-[#1e1c27] to-[#0d0c18]
+    }
+}
