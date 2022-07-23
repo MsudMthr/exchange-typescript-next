@@ -10,7 +10,7 @@ import { Navigation, Pagination, EffectFade , Autoplay } from 'swiper';
 
 //fetcher data function for get market data
 const fetcher = async (e : string)  => {
-  const {data} = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${e}&order=market_cap_desc`)
+  const {data} = await axios.get(`/coins/markets?vs_currency=${e}&order=market_cap_desc`)
   return data.slice(0,10) 
 }
 
@@ -24,14 +24,14 @@ const Header = () => {
     const oneBillion = 1_000_000_000;
     return (
         <header>
-        <h1 className='text-center  font-bold my-4 text-[#dcdcdc]'>Live prices</h1>
+        <h1 className='text-center  font-bold py-4 text-[#dcdcdc]'>Live prices</h1>
         <section className='flex items-center justify-around flex-wrap max-w-lg mx-auto flex-col sm:flex-row gap-3'>
           {!data && <h1>Loading</h1>}
           {error && <h1 className='text-red-500'>Oops Something Went Wrong </h1>}
           {data && !error && <>
             <Swiper   
               modules={[Navigation, Pagination  , Autoplay]}
-               speed={2000}
+               speed={2500}
               spaceBetween={50}
                autoplay={{
                 delay: 1500,
