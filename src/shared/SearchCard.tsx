@@ -13,9 +13,9 @@ const SearchCard: FC<SearchCardProps> = ({
   dataCoin: { name, large, price },
 }) => {
   return (
-    <div className="flex w-96 items-center justify-between gap-2">
+    <div className="flex w-full items-center justify-around gap-2 ">
       <Image src={large} alt={name} width={40} height={40} layout="fixed" />
-      <p>{name}</p>
+      <p className="text-[#d2d2d2] capitalize">{name}</p>
     </div>
   );
 };

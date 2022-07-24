@@ -33,13 +33,17 @@ const Search = () => {
           className="rounded bg-gray-500/30 px-2 py-1 text-[#d2d2d2] outline-none backdrop-blur-md md:w-4/12"
         />
       </div>
-      {coinList.length && searchCoinsText.length && (
-        <div className="flex flex-col items-center min-h-[150px] w-11/12 justify-center rounded bg-violet-700/10 backdrop-blur-md md:w-6/12 ">
-          {coinList?.map((coin, index) => (
-            <SearchCard dataCoin={coin} key={index} />
-          ))}
-        </div>
-      )}
+      <div
+        className={
+          coinList.length && searchCoinsText.length
+            ? `flex  max-h-64 overflow-auto py-5 w-11/12 flex-col items-center gap-2 justify-center rounded bg-violet-700/10 backdrop-blur-md md:w-6/12`
+            : "hidden"
+        }
+      >
+        {coinList?.map((coin, index) => (
+          <SearchCard dataCoin={coin} key={index} />
+        ))}
+      </div>
     </section>
   );
 };
