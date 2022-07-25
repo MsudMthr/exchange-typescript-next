@@ -19,7 +19,6 @@ const Header = () => {
     const [marKetCurrency , setMarketCurrency] = useState("usd")
 
     const {data , error} = useSWR("getMarketData",() => fetcher(marKetCurrency))
-    console.log(data);
 
     const oneBillion = 1_000_000_000;
     return (
