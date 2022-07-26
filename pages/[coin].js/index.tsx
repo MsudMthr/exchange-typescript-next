@@ -13,44 +13,29 @@ interface CoinDataResponseServer {
   data: CoinData;
 }
 
-export const getServerSideProps: GetServerSideProps<
-  {
-    [key: string]: any;
-  },
-  ParsedUrlQuery,
-  PreviewData
-> = (context) => {
-  const [coinData, setCoinData] = useState<any>();
-  const { query } = context;
-  console.log({ context, query });
+type CoinDetailProps = {
+  coinData : object[]
+}
 
-  //? const {data , error} = useFetch<Coin>("/coins/bitcoin?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false")
-  // console.log(data);
-  //   const { data } = axios.get(
-  //     `/coins/${query.coin}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false`
-  //   );
 
-  axios
-    .request<CoinData>({
-      url: `/coins/${query.coin}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false`,
-      transformResponse: (r: CoinDataResponseServer) => r.data,
-    })
-    .then((response) => {
-      const { data } = response;
-      setCoinData(data);
-    });
-
-  return {
-    props: {
-      coinDetail: { coinData },
-    },
-  };
-};
-
-const coinDetail = ({ coinData }) => {
+const coinDetail = ({ coinData } : CoinDetailProps) => {
   console.log(coinData);
 
   return <div></div>;
 };
 
 export default coinDetail;
+
+const getServerSideProps : GetServerSideProps = async (context) => {
+
+  const {params} = context;
+  console.log(params);
+  // const {data} : object = axios.get(`https://api.coingecko.com/api/v3/coins/${params?.coin}?localization=false`)
+  // console.log(data);
+  
+  return {
+    props : {
+      coinDetail : data
+    }
+  }
+}
