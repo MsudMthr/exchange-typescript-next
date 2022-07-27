@@ -14,7 +14,7 @@ const SearchCard: FC<SearchCardProps> = ({ dataCoin: { name, large, id } }) => {
   return (
     <Link
       passHref
-      href={`/${id}`}
+      href={`/coin/${id}`}
       
     >
       <div className="flex w-full items-center justify-around gap-2 ">
