@@ -20,7 +20,7 @@ const Search = () => {
   };
 
   return (
-    <section className="flex w-full flex-col items-center justify-center gap-4">
+    <section className="flex w-full flex-col items-center justify-center gap-4 relative">
       <div className="flex w-full justify-center">
         <label htmlFor="search" className="hidden"></label>
         <input
@@ -36,7 +36,7 @@ const Search = () => {
       <div
         className={
           coinList.length && searchCoinsText.length
-            ? `flex  max-h-64 overflow-auto py-5 w-11/12 flex-col items-center gap-2 justify-center rounded bg-violet-700/10 backdrop-blur-md md:w-6/12`
+            ? `flex  max-h-64 overflow-auto py-5 w-11/12 flex-col items-center gap-2 justify-center rounded bg-violet-700/10 backdrop-blur-md md:w-6/12 `
             : "hidden"
         }
       >

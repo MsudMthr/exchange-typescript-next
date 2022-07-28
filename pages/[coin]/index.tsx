@@ -16,7 +16,6 @@ type CoinDetailProps = {
 };
 
 const coinDetail = ({ coinData }: CoinDetailProps) => {
-  console.log(coinData);
 
   return <div>
     <p>salam</p>
@@ -28,7 +27,6 @@ const coinDetail = ({ coinData }: CoinDetailProps) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { params } = context;
   let data;
-  console.log(params);
   axios
     .get<CoinData[]>(
       `https://api.coingecko.com/api/v3/coins/id=${params?.coin}?localization=false`
@@ -37,7 +35,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       data = res.data;
     });
 
-    console.log(data);
     
     return {
       props: {
