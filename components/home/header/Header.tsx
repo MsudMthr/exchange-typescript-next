@@ -45,11 +45,11 @@ const Header = () => {
               slidesPerView={1}
               loop={true}
               pagination={{ clickable: false }}
-              className="h-40 w-60 sm:w-80 md:w-full "
+              className="h-40 w-72 sm:w-80 md:w-full "
             >
               {data.map((coin: any) => (
                 <SwiperSlide
-                  className="flex h-16 w-full items-center  justify-center gap-1 sm:gap-5 "
+                  className="flex h-16 w-full items-center justify-between md:justify-center  gap-1 sm:gap-5 "
                   key={coin.id}
                 >
                   <div className="flex flex-col items-center justify-center gap-2">
