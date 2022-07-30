@@ -8,18 +8,18 @@ type HotCoinCardProps = {
 const HotCoinCard = ({ data }: HotCoinCardProps) => {
   const { large, market_cap_rank, name, price_btc, score, slug, symbol } = data;
   return (
-    <tr className="text-center ">
+    <tr className="text-center">
       <td>
-        <Image src={large} width="80" height={"80"} alt={slug} priority className="rounded-xl" />
+        <Image src={large} width={80} height={80} layout="fixed" alt={slug} priority className="rounded" />
       </td>
-      <td>
+      <td className="hidden sm:flex items-center justify-center h-20">
         <h1 className="text-[#d2d2d2] max-w-[500px]">{name}</h1>
       </td>
       <td>
         <p className="text-[#d2d2d2]">{symbol}</p>
       </td>
-      <td className="hidden sm:flex">
-        <p className="text-[#d2d2d2] ">{price_btc.toFixed(7)} BTC</p>
+      <td className="hidden sm:flex items-center justify-center h-20">
+        <p className="text-[#d2d2d2] text-center">{price_btc.toFixed(7)} BTC</p>
       </td>
       <td>
         <p className="text-[#d2d2d2]">{market_cap_rank}</p>

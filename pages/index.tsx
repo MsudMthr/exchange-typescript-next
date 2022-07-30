@@ -7,10 +7,12 @@ import HotCoins from '../components/home/HotCoins'
 
 const Home: NextPage = () => {
   return (
-    <div className=" min-h-screen bg-gradient poppins">
+    <div className=" min-h-screen bg-gradient poppins ">
+      <div className='max-w-screen-2xl mx-auto'>
       <Header />
       {/* <Search /> */}
       <HotCoins />
+      </div>
     </div>  
   )
 }

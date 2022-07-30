@@ -48,10 +48,10 @@ const HotCoins = () => {
         <thead className="py-2">
           <tr className="text-center text-lg font-medium text-[#d2d2d2]  ">
             <td>image</td>
-            <td>name</td>
+            <td className="hidden sm:flex justify-center">name</td>
             <td>symbol</td>
-            <td>price(BTC)</td>
-            <td>market rank</td>
+            <td className="hidden sm:flex justify-center">price(BTC)</td>
+            <td >market rank</td>
             <td></td>
           </tr>
         </thead>
