@@ -6,7 +6,7 @@ type HotCoinCardProps = {
 };
 
 const HotCoinCard = ({ data }: HotCoinCardProps) => {
-  const { large, market_cap_rank, name, price_btc, score, slug, symbol } = data;
+  const { large, market_cap_rank, name, price_btc, slug, symbol } = data;
   return (
     <tr className="text-center">
       <td>
