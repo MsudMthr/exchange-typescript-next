@@ -25,8 +25,8 @@ const HeaderPartCoins = ({
 }: HeaderPartCoinsPropsType) => {
   return (
     <div className="mb-2 flex flex-1 items-center justify-between gap-2 rounded-tl-2xl rounded-bl-sm bg-gradient-to-r from-slate-400/10 to-white/0 py-2 px-10 backdrop-blur-md ">
-      <div className="flex items-center">
-        <h1 className="text-lg font-medium text-white">{text}</h1>
+      <div className="flex items-center gap-2">
+        <h1 className="text-lg font-medium text-white ">{text}</h1>
         <Image
           src={image}
           alt="hot coin"
@@ -38,7 +38,7 @@ const HeaderPartCoins = ({
       <div className="flex items-center">
         <InfoTooltip text={tooltip} />
         <KeyboardArrowUpIcon
-          className={`text-white ${!isOpen ? "rotate-180" : ""} transition-all`}
+          className={`text-white transition-all ${!isOpen && "" } `}
           onClick={() => setIsOpen(!isOpen)}
         />
       </div>

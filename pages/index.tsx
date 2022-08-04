@@ -9,10 +9,9 @@ import { HotCoinCardTypes } from "../components/home/home.type";
 import axios from "axios";
 import AllCoinDetails from "../components/home/AllCoin";
 
-
-
-const Home: NextPage = ({trendCoin} : any) => {
-
+const Home: NextPage = ({ trendCoin, allCoin }: any) => {
+  
+  
   return (
     <div className=" bg-gradient poppins min-h-screen ">
       <div className="mx-auto max-w-screen-2xl">
@@ -27,14 +26,17 @@ const Home: NextPage = ({trendCoin} : any) => {
 
 export default Home;
 
-export const getServerSideProps : GetServerSideProps = async (context) => {
-
-  const {data} = await axios.get("/search/trending")
-  
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  console.log(context.query);
+  const {query} = context
+  const trendCoins = await axios.get("/search/trending");
+  const allCoin = await axios.get(
+    `/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=155&page=${query.page ? query.page : 1}&sparkline=false&price_change_percentage=24h`
+  );
   return {
-    props :{
-      trendCoin : data
-    }
-  }
-}
-
+    props: {
+      trendCoin: trendCoins.data,
+      allCoin: allCoin.data,
+    },
+  };
+};

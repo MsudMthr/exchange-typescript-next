@@ -23,7 +23,7 @@ const HotCoins = ({ trendCoin }: any) => {
 
   return (
     <section
-      className={`mx-auto flex w-11/12 flex-col rounded-2xl bg-gradient-to-b  from-slate-800/30  to-slate-100/0 p-2 transition-all duration-500 md:w-9/12 ${
+      className={`mx-auto flex w-11/12 flex-col rounded-2xl bg-gradient-to-b overflow-hidden   from-slate-800/30  to-slate-100/0 p-2 transition-all duration-500 md:w-9/12 ${
         !isOpen ? "h-24" : ""
       }`}
     >
@@ -37,7 +37,7 @@ const HotCoins = ({ trendCoin }: any) => {
       />
       {/* the table show trending coin */}
       <table
-        className={`table transition-all duration-500 ${
+        className={`table transition-all overflow-hidden duration-500 ${
           !isOpen ? "scale-0" : ""
         } `}
       >
