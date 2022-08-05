@@ -18,7 +18,7 @@ const Home: NextPage = ({ trendCoin, allCoin }: any) => {
         <Header />
         {/* <Search /> */}
         <HotCoins trendCoin={trendCoin} />
-        <AllCoinDetails />
+        <AllCoinDetails allCoin={allCoin} />
       </div>
     </div>
   );
@@ -31,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const {query} = context
   const trendCoins = await axios.get("/search/trending");
   const allCoin = await axios.get(
-    `/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=155&page=${query.page ? query.page : 1}&sparkline=false&price_change_percentage=24h`
+    `/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=15&page=${query.page ? query.page : 1}&sparkline=false&price_change_percentage=24h`
   );
   return {
     props: {
