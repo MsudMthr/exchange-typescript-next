@@ -42,7 +42,7 @@ const AllCoinCard = ({ coinDetail }: CoinDetailProps) => {
         <p className="text-[#d2d2d2]">{symbol}</p>
       </td>
       <td className="hidden h-20 items-center justify-center sm:flex">
-        <p className="text-center text-[#d2d2d2]">{fixedOrFloorNum(current_price)}</p>
+        <p className="text-center text-[#d2d2d2]">$ {fixedOrFloorNum(current_price)}</p>
       </td>
       <td>
         <p className="text-[#d2d2d2]">{price_change_percentage_24h}</p>

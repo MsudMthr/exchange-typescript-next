@@ -13,7 +13,7 @@ import bitcoinSVG from "../../src/assets/bitcoin-svgrepo-com.svg";
 //tooltip text
 const AllCoinPriceTooltipText = {
   header: "All coin",
-  text: "Show All Coin Detail ",
+  text: "Show 15 market Coin Detail per page  ",
 };
 
 type AllCoinDetailsProps = {
@@ -21,18 +21,16 @@ type AllCoinDetailsProps = {
 };
 
 const AllCoinDetails = ({ allCoin }: AllCoinDetailsProps) => {
-  const router = useRouter()
-  const changePageHandler = (
-    event: React.ChangeEvent<HTMLButtonElement>,
-    value: number
-  ) => {
-    event.preventDefault();
-    router.push(`?page=${value}/#market`)
+  const router = useRouter();
+
+  const changePageHandler = (e: any, value: number): void => {
+    router.push(`?page=${value}&#market`);
   };
 
   const [isOpen, setIsOpen] = useState<Boolean>(true);
   return (
     <section
+      id="market"
       className={`mx-auto flex w-11/12 flex-col rounded-2xl bg-gradient-to-b  from-slate-800/30  to-slate-100/0 p-2 transition-all duration-500 md:w-9/12 ${
         !isOpen ? "h-24" : ""
       }`}
@@ -48,7 +46,6 @@ const AllCoinDetails = ({ allCoin }: AllCoinDetailsProps) => {
       />
       <table
         className={`table transition-all duration-300 ${!isOpen && "scale-0"}`}
-        id="market"
       >
         <thead className="py-2">
           <tr className="text-center text-lg font-medium text-[#d2d2d2]  ">
@@ -56,8 +53,7 @@ const AllCoinDetails = ({ allCoin }: AllCoinDetailsProps) => {
             <td className="hidden justify-center sm:flex">name</td>
             <td>symbol</td>
             <td className="hidden justify-center sm:flex">price</td>
-            <td>market rank</td>
-            <td></td>
+            <td>Price Change</td>
           </tr>
         </thead>
         <tbody>
@@ -65,15 +61,15 @@ const AllCoinDetails = ({ allCoin }: AllCoinDetailsProps) => {
             <AllCoinCard key={coin.id} coinDetail={coin} />
           ))}
         </tbody>
-
       </table>
-        <Pagination
-          count={10}
-          color="secondary"
-          variant="outlined"
-          onChange={changePageHandler}
-          className={`${!isOpen} && 'hidden'`}
-        />
+      <Pagination
+        count={20}
+        color="primary"
+        onChange={changePageHandler}
+        className={`flex justify-center invert  ${!isOpen && "hidden"}  `}
+        defaultPage={1}
+        page={router.query.page ? +router.query.page : 1}
+      />
     </section>
   );
 };

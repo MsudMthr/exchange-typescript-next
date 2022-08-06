@@ -1,8 +1,9 @@
 const fixedOrFloorNum = (number: number): number => {
+  // return +number.toLocaleString()
   if (number < 1) {
     return +number.toFixed(7);
   } else {
-    return +Math.floor(number).toFixed(3);
+    return +number.toFixed(3);
   }
 };
 
