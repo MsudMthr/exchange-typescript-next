@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { fixedOrFloorNum } from "../helper/function";
 
@@ -24,29 +25,37 @@ const AllCoinCard = ({ coinDetail }: CoinDetailProps) => {
   } = coinDetail;
   return (
     <tr className="text-center">
-      <td className="bg-red-500">
-        <Image
-          src={image}
-          width={80}
-          height={80}
-          layout="fixed"
-          alt={id}
-          priority
-          className="rounded"
-        />
-      </td>
-      <td className="hidden h-20 items-center justify-center sm:flex ">
-        <h1 className="max-w-[500px] text-[#d2d2d2]">{name}</h1>
-      </td>
-      <td>
-        <p className="text-[#d2d2d2]">{symbol}</p>
-      </td>
-      <td className="hidden h-20 items-center justify-center sm:flex">
-        <p className="text-center text-[#d2d2d2]">$ {fixedOrFloorNum(current_price)}</p>
-      </td>
-      <td>
-        <p className="text-[#d2d2d2]">{price_change_percentage_24h}</p>
-      </td>
+      <>
+        <td className="bg-red-500">
+          <Image
+            src={image}
+            width={80}
+            height={80}
+            layout="fixed"
+            alt={id}
+            priority
+            className="rounded"
+          />
+        </td>
+        <td className="hidden h-20 items-center justify-center sm:flex ">
+          <Link href={`/coin/${id}`} className="cursor-pointer  underline  ">
+            <h1 className="max-w-[500px] text-[#d2d2d2] ">{name}</h1>
+          </Link>
+        </td>
+        <td>
+          <Link href={`/coin/${id}`} className="  cursor-pointer underline ">
+            <p className="text-[#d2d2d2] ">{symbol}</p>
+          </Link>
+        </td>
+        <td className="hidden h-20 items-center justify-center sm:flex">
+          <p className="text-center text-[#d2d2d2]">
+            $ {fixedOrFloorNum(current_price)}
+          </p>
+        </td>
+        <td>
+          <p className="text-[#d2d2d2]">{price_change_percentage_24h}</p>
+        </td>
+      </>
     </tr>
   );
 };
