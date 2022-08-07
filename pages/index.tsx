@@ -14,7 +14,7 @@ const Home: NextPage = ({ trendCoin, allCoin }: any) => {
     <div className=" bg-gradient poppins min-h-screen ">
       <div className="mx-auto max-w-screen-2xl">
         <Header />
-        {/* <Search /> */}
+        <Search />
         <HotCoins trendCoin={trendCoin} />
         <AllCoinDetails allCoin={allCoin} />
       </div>
