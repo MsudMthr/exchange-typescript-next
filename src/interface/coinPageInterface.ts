@@ -1,14 +1,24 @@
 interface CoinData {
-  data: {
-    symbol: string;
-    name: string;
-    github: {
-      large: string;
+  categories: string[];
+  symbol: string;
+  name: string;
+  image: {
+    thumb: string;
+    small: string;
+    large: string;
+  };
+  description: {
+    en: string;
+  };
+  links: {
+    homepage: string[];
+    repos_url: {
+      github: string[];
     };
-    market_data: {
-      current_price: {
-        usd: number;
-      };
+  };
+  market_data: {
+    current_price: {
+      usd: number;
     };
   };
 }
