@@ -1,8 +1,7 @@
 import { Grid } from "@mui/material";
 import axios from "axios";
 import { GetServerSideProps } from "next";
-import Image from "next/image";
-import CoinDetail from "../../components/CoinDetail";
+import CoinDetail from "../../components/Coin/CoinDetail";
 import CoinData from "../../src/interface/coinPageInterface";
 
 type CoinPropType = {
@@ -18,6 +17,7 @@ const Coin = ({ coin }: CoinPropType) => {
       </Grid>
       <Grid item xs={12} sm={6} padding={5}>
         <CoinDetail coin={coin} />
+        
       </Grid>
     </Grid>
   );

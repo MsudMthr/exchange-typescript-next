@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import CoinData from "../src/interface/coinPageInterface";
+import CoinData from "../../src/interface/coinPageInterface";
 import Image from "next/image";
-
+import CoinModal from "./CoinModal";
 type CoinDetailProps = {
   coin: CoinData;
 };
@@ -28,6 +28,7 @@ const CoinDetail = ({ coin }: CoinDetailProps) => {
       <p>
         price : <span>${coin.market_data.current_price.usd}</span>
       </p>
+      <CoinModal coin={coin} />
     </div>
   );
 };
